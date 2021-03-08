@@ -27,7 +27,7 @@ function ExploreFoods(props) {
           Por Ingredientes
         </Link>
         <Link
-          className="explore-link"
+          className="explore-link text-3xl"
           to="/explorar/comidas/area"
           data-testid="explore-by-area"
         >

@@ -132,7 +132,7 @@ function FavoriteRecipes() {
                 </Link>
               </div>
 
-              <div className="flex flex-col w-1/2 items-center jutisfy-between">
+              <div className="flex flex-col w-1/2 lg:mx-auto items-center jutisfy-between">
                 <h1
                   className="text-4xl mt-2 text-pink-500 hover:text-pink-500"
                   data-testid={ `${index}-horizontal-name` }

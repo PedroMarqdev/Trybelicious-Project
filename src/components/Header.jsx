@@ -37,10 +37,10 @@ function Header({ title, search }) {
           {title}
         </h1>
         {search && (
-          <button type="button" onClick={ () => handleClick(valueFlag) }>
+          <button className="focus:outline-none" type="button" onClick={ () => handleClick(valueFlag) }>
             <FontAwesomeIcon
               size="3x"
-              className="transform transition-all fill-current text-white hover:scale-110 hover:text-green-500"
+              className="focus:outline-none transform transition-all fill-current text-white hover:scale-110 hover:text-green-500"
               icon={ faSearch }
             />
           </button>
