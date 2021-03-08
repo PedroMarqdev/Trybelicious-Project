@@ -32,7 +32,7 @@ function Header({ title, search }) {
             icon={ faUser }
           />
         </Link>
-        <h1 className="mx-3 lg:m-0 font-pacifico text-white" data-testid="page-title">
+        <h1 className="mx-3 text-3xl lg:text-4xl lg:m-0 font-pacifico text-white" data-testid="page-title">
           {title}
         </h1>
         {search && (
