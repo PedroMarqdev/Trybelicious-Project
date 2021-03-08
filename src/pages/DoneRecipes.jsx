@@ -7,7 +7,7 @@ function DoneRecipes() {
   const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes')) || [];
   const [filter, setFilter] = useState('All');
   const retrieveAllRecipes = () => (
-    <div>
+    <div className="">
       {doneRecipes.map((element, index) => {
         if (element.type === 'comida') {
           return <DoneFoodCard key={ index } food={ element } index={ index } />;
@@ -17,16 +17,24 @@ function DoneRecipes() {
     </div>
   );
 
-  const retrieveFoodRecipes = () => doneRecipes
-    .filter((element) => element.type === 'comida')
-    .map((foodCard, index) => (
-      <DoneFoodCard key={ index } food={ foodCard } index={ index } />
-    ));
-  const retrieveDrinkRecipes = () => doneRecipes
-    .filter((element) => element.type === 'bebida')
-    .map((drinkCard, index) => (
-      <DoneDrinkCard key={ index } drink={ drinkCard } index={ index } />
-    ));
+  const retrieveFoodRecipes = () => (
+    <div>
+      {doneRecipes
+        .filter((element) => element.type === 'comida')
+        .map((foodCard, index) => (
+          <DoneFoodCard key={ index } food={ foodCard } index={ index } />
+        ))}
+    </div>
+  );
+  const retrieveDrinkRecipes = () => (
+    <div>
+      {doneRecipes
+        .filter((element) => element.type === 'bebida')
+        .map((foodCard, index) => (
+          <DoneDrinkCard key={ index } drink={ foodCard } index={ index } />
+        ))}
+    </div>
+  );
   const retrieveRecipes = () => {
     switch (filter) {
     case 'All':
@@ -43,9 +51,9 @@ function DoneRecipes() {
     return setFilter('Loading');
   }
   return (
-    <div className="main-container bg-gradient-to-tr h-screen from-green-300 to-green-400">
+    <div className="container main-container">
       <div className="items-container">
-        <div className="header-container">
+        <div className="header-container bg-gradient-to-tr from-green-300 to-green-400">
           <Header title="Receitas Feitas" search={ false } />
         </div>
 
@@ -75,7 +83,9 @@ function DoneRecipes() {
             Food
           </button>
         </div>
-        <div className="max-h-96 my-auto sm:overflow-visible mx-auto overflow-y-scroll rounded-xl">{retrieveRecipes()}</div>
+        <div className="px-auto rounded-xl">
+          {retrieveRecipes()}
+        </div>
       </div>
     </div>
   );

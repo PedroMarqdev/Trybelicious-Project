@@ -11,30 +11,30 @@ function Profile() {
   const profileItems = () => {
     const { email } = JSON.parse(localStorage.getItem('user')) || { email: '' };
     return (
-      <div className="flex flex-column justify-center items-center">
+      <div className="flex w-full lg:w-2/5 flex-column justify-between items-center">
         <div className="flex w-10/12 m-4 flex-column items-center border-b-2 border-white rounded-lg">
-          <h3 className="font-pacifico text-white text-3xl">Bem-vindo!</h3>
-          <h4 className="font-pacifico text-3xl text-white" data-testid="profile-email">
+          <h3 className="font-pacifico text-white text-4xl">Bem-vindo!</h3>
+          <h4 className="font-montserrat text-xl text-white" data-testid="profile-email">
             {email}
           </h4>
         </div>
-        <div className="flex w-full items-center h-full text-3xl  border-b-2 border-white rounded-lg flex-column">
+        <div className="flex w-4/5 items-center h-full text-3xl  border-b-2 border-white rounded-lg flex-column">
           <Link
-            className="transform bg-white opacity-90 hover:opacity-100 text-indigo-300 hover:text-indigo-300 hover:scale-105 transition-all link text-center border-b-2 border-t-2 p-2 border-white rounded-lg shadow-sm m-2"
+            className="transform w-4/5 text-2xl bg-white opacity-90 hover:opacity-100 text-indigo-300 hover:text-indigo-300 hover:scale-105 transition-all link text-center border-b-2 border-t-2 p-2 border-white rounded-lg shadow-sm m-2"
             to="/receitas-feitas"
             data-testid="profile-done-btn"
           >
             Receitas Feitas
           </Link>
           <Link
-            className="transform bg-white opacity-90 hover:opacity-100 text-indigo-300 hover:text-indigo-300 hover:scale-105 transition-all  link text-center border-b-2 border-t-2 p-2 border-white rounded-lg shadow-sm m-2"
+            className="transform w-4/5 text-2xl bg-white opacity-90 hover:opacity-100 text-indigo-300 hover:text-indigo-300 hover:scale-105 transition-all  link text-center border-b-2 border-t-2 p-2 border-white rounded-lg shadow-sm m-2"
             to="/receitas-favoritas"
             data-testid="profile-favorite-btn"
           >
             Receitas Favoritas
           </Link>
           <Link
-            className="transform bg-white opacity-90 hover:opacity-100 text-indigo-300 hover:text-indigo-300 hover:scale-105 transition-all  link text-center border-b-2 p-2 m-2 border-t-2 border-white rounded-lg shadow-sm w-full"
+            className="transform w-4/5 bg-white opacity-90 hover:opacity-100 text-red-300 hover:text-red-500 hover:scale-105 transition-all  link text-center border-b-2 p-2 m-2 border-t-2 border-white rounded-lg shadow-sm "
             to="/"
             onClick={ eraseLocalStorage }
             data-testid="profile-logout-btn"

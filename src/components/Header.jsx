@@ -25,7 +25,7 @@ function Header({ title, search }) {
 
   return (
     <div className="transition-all duration-500">
-      <header className="h-auto w-auto flex justify-around mx-auto text-center items-baseline">
+      <header className="h-auto w-auto flex justify-around mx-auto text-center items-center lg:items-baseline">
         <Link to="/perfil">
           <FontAwesomeIcon
             size="3x"
@@ -33,7 +33,7 @@ function Header({ title, search }) {
             icon={ faUser }
           />
         </Link>
-        <h1 className="font-pacifico text-white" data-testid="page-title">
+        <h1 className="mx-3 lg:m-0 font-pacifico text-white" data-testid="page-title">
           {title}
         </h1>
         {search && (

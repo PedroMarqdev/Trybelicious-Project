@@ -28,7 +28,7 @@
     @apply text-white hover:text-white hover:no-underline;
   }
   .main-container {
-    @apply h-screen overflow-y-scroll w-screen min-h-screen;
+    @apply h-screen w-screen min-h-screen;
   }
   .items-container {
     @apply h-auto flex flex-col items-center mx-auto justify-center w-11/12;

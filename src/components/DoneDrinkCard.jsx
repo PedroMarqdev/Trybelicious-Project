@@ -16,43 +16,54 @@ function DoneDrinkCard({ drink, index }) {
     doneDate,
   } = drink;
   return (
-    <div className="rounded-xl text-center font-pacifico text-green-500 bg-white p-6 shadow-xl border-t-2 border-b-2 border-green-500 my-4 flex flex-col justify-center items-center">
-      <Link className="link text-green-500 hover:text-green-500" to={ `/bebidas/${id}` }>
-        <img
-          className="shadow-xl rounded-xl"
-          data-testid={ `${index}-horizontal-image` }
-          src={ image }
-          alt="recipeImg"
+    <div className="flex bg-white w-11/12  mx-auto h-full my-8 rounded-lg flex-col shadow-xl lg:flex-row justify-between items-center">
+      <div className="">
+        <Link className="link" to={ `/bebidas/${id}` }>
+          <img
+            className="object-cover lg:rounded-l-lg lg:rounded-t-none rounded-t-lg"
+            data-testid={ `${index}-horizontal-image` }
+            src={ image }
+            alt="recipeImg"
+          />
+        </Link>
+      </div>
+      <div className="h-12 w-12 m-2 bg-blue-400 rounded-full">
+        <CopyButton
+          location={ `/comidas/${id}` }
+          testId={ `${index}-horizontal-share-btn` }
         />
-      </Link>
+      </div>
 
-      <CopyButton
-        location={ `/bebidas/${id}` }
-        testId={ `${index}-horizontal-share-btn` }
-      />
-      <Link className="link text-green-500 hover:text-green-500" to={ `/bebidas/${id}` }>
-        <h1
-          data-testid={ `${index}-horizontal-name` }
+      <div className="w-full h-auto flex text-sm justify-center items-center flex-col">
+        <Link
+          className="link text-blue-400 hover:text-blue-500"
+          to={ `/bebidas/${id}` }
         >
-          {`${name}: ${alcoholicOrNot}`}
-        </h1>
-      </Link>
-      <p className="text-2xl" data-testid={ `${index}-horizontal-top-text` }>
-        {`Categoria: ${category} ${alcoholicOrNot}`}
-      </p>
-      <p className="text-2xl">{`Area: ${!area ? 'desconhecida' : 'area'}`}</p>
-      <p className="text-2xl" data-testid={ `${index}-horizontal-done-date` }>
-        {`Feita em: ${doneDate}`}
-      </p>
-      {tags
-        && tags.map((tagers) => (
-          <p
-            key={ `${tagers}${index}` }
-            data-testid={ `${index}-${tagers}-horizontal-tag` }
-          >
-            {tags}
-          </p>
-        ))}
+          <h1 data-testid={ `${index}-horizontal-name` }>{name}</h1>
+        </Link>
+        <p
+          className="font-montserrat font-bold text-trueGray-500"
+          data-testid={ `${index}-horizontal-top-text` }
+        >
+          {`Categoria: ${area} - ${category} ${alcoholicOrNot}`}
+        </p>
+        <p
+          className="font-montserrat font-bold text-trueGray-500"
+          data-testid={ `${index}-horizontal-done-date` }
+        >
+          {`Feita em: ${doneDate}`}
+        </p>
+        {tags
+          && tags.map((tagers) => (
+            <p
+              className="font-montserrat font-bold text-trueGray-500"
+              key={ `${tagers}${index}` }
+              data-testid={ `${index}-${tagers}-horizontal-tag` }
+            >
+              {tags}
+            </p>
+          ))}
+      </div>
     </div>
   );
 }
@@ -66,7 +77,10 @@ DoneDrinkCard.propTypes = {
     id: PropTypes.string,
     image: PropTypes.string,
     name: PropTypes.string,
-    tags: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+    tags: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.arrayOf(PropTypes.string),
+    ]),
   }).isRequired,
   index: PropTypes.number.isRequired,
 };

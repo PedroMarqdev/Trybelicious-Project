@@ -62,7 +62,7 @@ function CategoryBar({ type }) {
 
   // prettier-ignore
   return (
-    <div className="display-h h-20 justify-between flex items-center w-4/5 mx-auto overflow-x-auto overflow-y-hidden">
+    <div className="display-h h-20 justify-between rounded-full flex items-center w-4/5 mx-auto overflow-x-auto overflow-y-hidden">
       <div
         className={ `transform hover:scale-110 break-normal 
         transition-all h-auto w-auto font-monteserrat rounded-lg 
