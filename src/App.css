@@ -1,68 +1,95 @@
-.meals {
+body {
+  min-width: 360px;
+}
+
+input:checked + label {
+  text-decoration: line-through;
+}
+
+.footer {
+  bottom: 0;
+  position: fixed;
+}
+
+.header {
+  display: flex;
+}
+
+.recommendation {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.recommendation:hover {
+  overflow: auto;
+}
+
+.recommendation-card {
   align-items: center;
-  background: #0fa36b;
-  color: #464646;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
-  height: 100vh;
-  justify-content: center;
+  margin: 0 1px 0 0;
+  min-width: 50%;
+  padding: 8px;
+}
+
+.recommendation-image {
   width: 100%;
 }
 
-.rocksGlass {
-  animation: shake 1s infinite ease;
-  max-height: 80vh;
+.header-image {
+  width: 100%;
 }
 
-/*
-#iceLeft {
-  animation: clink .8s infinite ease;
-  opacity: 0.6;
-  transform-origin: 36px 66px;
+.example-enter {
+  transform: translateX(100%)
 }
 
-#iceRight {
-  animation: clink .8s .2s infinite ease;
-  opacity: 0.6;
-  transform-origin: 60px 78px;
-}
-*/
-
-.meals > .logo {
-  animation: shake 1.5s infinite ease;
-  color: aliceblue;
-  font-family: Montserrat , sans-serif;
-  font-size: 3em;
-  font-weight: 900;
+.example-enter-active {
+  transform: translateX(0);
+  transition: all 300ms ease-in-out;
 }
 
-@keyframes shake {
-
-  0% {
-    transform: rotate(5deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(5deg);
-  }
+.example-exit {
+  transform: translateX(0%);
+  transform: translateY(-100%);
 }
 
-@keyframes clink {
+.example-exit-active {
+  position: absolute;
+  transform: translateY(-100%);
+  transform: translateX(-100%);
+  transition: all 400ms ease-in-out;
+}
+.example-enter {
+  position: absolute;
+  transform: translateX(100%)
+}
 
-  0% {
-    transform: rotate(-10deg);
-  }
+.example-enter-active {
+  transform: translateX(0);
+  transition: all 300ms ease-in-out;
+}
 
-  50% {
-    transform: rotate(20deg);
-  }
+.example-exit {
+  position: absolute;
+  overflow: hidden;
+  transform: translateX(0%);
+}
 
-  100% {
-    transform: rotate(-10deg);
-  }
+.example-exit-active {
+  transform: translateX(-100%);
+  transition: all 400ms ease-in;
+}
+
+.example-appear {
+  position: absolute;
+  transform: translateX(-100%);
+}
+
+.example-appear-active {
+  transform: translateX(0);
+  transition: all 200ms ease-in;
 }
