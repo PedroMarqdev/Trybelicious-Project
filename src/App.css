@@ -93,3 +93,20 @@ input:checked + label {
   transform: translateX(0);
   transition: all 200ms ease-in;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF5733;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF2D00;
+}

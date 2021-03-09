@@ -104,7 +104,7 @@ function DrinkRecipeProgress({ match, history }) {
             setCheck={ setCheck }
             getCheck={ getCheck }
           />
-          <div className="border-l-2 border-r-2 border-b-2 border-white flex lg:overflow-y-auto flex-col mb-20 w-10/12 lg:w-1/2 bg-gradient-to-tr from-blue-400 to-blue-500 text-blue-500 rounded-xl shadow-xl">
+          <div className="border-l-2 border-r-2 border-b-2 border-white w-screen/2 flex lg:overflow-y-auto flex-col mb-20 lg:w-1/2 bg-gradient-to-tr from-blue-400 to-blue-500 text-blue-500 rounded-xl shadow-xl">
             <button
               className="text-white font-bold border-t-2 border-b-2 border-white p-2 rounded-lg   focus:outline-none text-2xl"
               type="button"
@@ -114,7 +114,7 @@ function DrinkRecipeProgress({ match, history }) {
             </button>
             {instructionsShow && (
               <p
-                className="lg:h-screen/4 rounded-lg p-2  text-white"
+                className="lg:h-screen/6 rounded-lg text-center p-2  text-white"
                 data-testid="instructions"
               >
                 {data[0].strInstructions}

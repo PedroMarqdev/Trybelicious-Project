@@ -90,7 +90,7 @@ function FoodRecipeProgress({ match, history }) {
 
           <h3 className="lg:text-amber-400 mb-4" data-testid="recipe-category">{`Categoria: ${data[0].strCategory}`}</h3>
         </div>
-        <div className="transition-all duration-500 flex h-auto lg:w-1/2  lg:h-screen text-amber-400 mx-auto my-auto items-center justify-around flex-col">
+        <div className="w-8/12 flex h-auto lg:w-1/2  lg:h-screen text-amber-400 mx-auto my-auto items-center justify-around flex-col">
           <h1 className="header-container flex-none text-white text-3xl lg:bg-gradient-to-r from-amber-400 to-amber-500 font-pacifico">
             {' '}
             Checklist dos ingredientes !
@@ -101,9 +101,9 @@ function FoodRecipeProgress({ match, history }) {
             setCheck={ setCheck }
             getCheck={ getCheck }
           />
-          <div className="border-l-2 border-r-2 border-b-2 border-white flex lg:overflow-y-auto flex-col mb-20 w-10/12 lg:w-1/2 bg-gradient-to-tr from-amber-400 to-amber-500 text-amber-500 rounded-xl shadow-xl">
+          <div className="border-l-2 flex border-r-2 border-b-2 border-white lg:overflow-y-auto mb-16 w-screen/2 lg:w-1/2 bg-gradient-to-tr from-amber-400 to-amber-500 text-amber-500 rounded-xl shadow-xl">
             <button
-              className="text-white font-bold border-t-2 border-b-2 border-white p-2 rounded-lg   focus:outline-none text-2xl"
+              className="text-white font-bold border-t-2 border-b-2 border-white p-2 rounded-lg w-full  focus:outline-none text-2xl"
               type="button"
               onClick={ setInstructions }
             >
@@ -111,7 +111,7 @@ function FoodRecipeProgress({ match, history }) {
             </button>
             {instructionsShow && (
               <p
-                className="lg:h-screen/4 rounded-lg p-2  text-white"
+                className="lg:h-screen/6 break-word rounded-lg p-2 text-white"
                 data-testid="instructions"
               >
                 {data[0].strInstructions}
