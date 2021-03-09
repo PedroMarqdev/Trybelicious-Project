@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../../components/Loading';
 import * as Actions from '../../actions';
-import * as drinkAPI from '../../services/drinkApi';
-import FavoriteButtonFood from '../../components/FavoriteButtons/FavoriteButtonFood';
 import CopyButton from '../../components/CopyButton';
+import ReturnButton from '../../components/ReturnButton'
+import FavoriteButtonFood from '../../components/FavoriteButtons/FavoriteButtonFood';
+import Loading from '../../components/Loading';
 import StartRecipeButtonFood from '../../components/StartRecipeButtons/StartRecipeButtonFood';
+import * as drinkAPI from '../../services/drinkApi';
 
 function FoodsDetails({ match, location }) {
   const [instructionsShow, setShow] = useState(false);
@@ -76,6 +77,7 @@ function FoodsDetails({ match, location }) {
             className="flex overscroll-y-auto flex-col lg:flex-row items-center justify-center w-10/12 mx-auto h-10/12"
             key={ strMeal }
           >
+            <ReturnButton color="text-amber-500"path="../comidas"/>
             <div className="flex w-full lg:w-1/2 items-center flex-col">
               <h1
                 className="header-container font-pacifico"

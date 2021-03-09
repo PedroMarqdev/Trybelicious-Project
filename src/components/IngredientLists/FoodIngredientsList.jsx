@@ -75,7 +75,7 @@ function FoodIngredientsList({ progressRecipes, id, setCheck, getCheck }) {
   };
 
   return (
-    <ul className="flex flex-col font-montserrat font-bold lg:items-baseline">
+    <ul className="flex flex-col bg-white w-10/12 p-2 shadow-inner rounded-lg lg:bg-none font-montserrat font-bold lg:items-baseline">
       {progressRecipes.map((element, index) => (
         <li data-testid={ `${index}-ingredient-step` } key={ element }>
           {returnCheckbox(element)}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import FavoriteButtonFood from '../../components/FavoriteButtons/FavoriteButtonFood';
 import FoodIngredientsList from '../../components/IngredientLists/FoodIngredientsList';
+import ReturnButton from '../../components/ReturnButton';
 import * as API from '../../services/foodApi';
 import CopyButton from '../../components/CopyButton';
 import Loading from '../../components/Loading';
@@ -63,51 +64,60 @@ function FoodRecipeProgress({ match, history }) {
   if (loading) return <Loading bgColor="from-amber-300 to-amber-400" />;
 
   return (
-    <div className="text-center w-screen flex-col lg:flex-row flex justify-around items-baseline font-montserrat lg:h-screen text-white min-w-screen min-h-screen bg-gradient-to-r h-auto from-amber-400 to-amber-500">
-      <div className="flex lg:h-screen/80 w-full lg:w-1/2 items-center flex-col">
-        <h1
-          className="header-container font-pacifico"
-          data-testid="recipe-title"
-        >
-          {data[0].strMeal}
-        </h1>
-        <img
-          className="rounded-lg w-4/5 p-2 bg-white shadow-xl border-t-2 border-b-2 border-amber-600"
-          src={ data[0].strMealThumb }
-          alt="recipe-img"
-          data-testid="recipe-photo"
-        />
-        <div className="flex">
-          <CopyButton location={ `/comidas/${id}` } />
-          <FavoriteButtonFood id={ id } fetchAgain="true" />
-        </div>
-
-        <h3 data-testid="recipe-category">{`Categoria: ${data[0].strCategory}`}</h3>
-      </div>
-      <div className="justify-between flex flex-col w-full flex-none lg:w-1/2 lg:h-screen/80 overflow-auto">
-        <h1 className="header-container text-3xl font-pacifico"> Checklist dos ingredientes !</h1>
-        <FoodIngredientsList
-          progressRecipes={ progressRecipes }
-          id={ id }
-          setCheck={ setCheck }
-          getCheck={ getCheck }
-        />
-        <div className="flex flex-col mb-20 mx-4 bg-white rounded-xl shadow-xl">
-          <button
-            className="bg-white p-2 rounded-lg text-amber-500 focus:outline-none text-2xl"
-            type="button"
-            onClick={ setInstructions }
-          >
-            Instruções
-          </button>
-          {instructionsShow && (
-            <p
-              className="bg-white rounded-lg p-2 text-amber-500"
-              data-testid="instructions"
+    <div className="text-center w-screen h-auto flex-col lg:flex-row flex justify-center items-center font-montserrat lg:h-screen text-white min-w-screen min-h-screen bg-gradient-to-r from-amber-400 to-amber-500">
+      <div className="flex flex-col h-full lg:flex-row mx-auto lg:w-10/12 lg:bg-white rounded-lg shadow-xl">
+        <div className="flex w-auto h-auto lg:my-auto items-center justify-center flex-col">
+          <div className="flex header-container bg-gradient-to-r from-amber-400 to-amber-500 flex-col lg:flex-row h-full w-10/12 lg:w-1/2 items-center justify-between">
+            <ReturnButton color="text-amber-500" path={ `/comidas/${id}` } />
+            <h1
+              className="font-pacifico lg:mr-32 text-5xl"
+              data-testid="recipe-title"
             >
-              {data[0].strInstructions}
-            </p>
-          )}
+              {data[0].strMeal}
+            </h1>
+          </div>
+
+          <img
+            className="rounded-lg w-4/5 p-2 bg-white lg:bg-gradient-to-r from-amber-400 to-amber-500 shadow-xl border-t-2 border-b-2 border-amber-600"
+            src={ data[0].strMealThumb }
+            alt="recipe-img"
+            data-testid="recipe-photo"
+          />
+          <div className="lg:bg-gradient-to-r from-amber-400 to-amber-500 flex rounded-lg lg:shadow-lg m-4 w-1/5 justify-around items-center">
+            <CopyButton location={ `/comidas/${id}` } />
+            <FavoriteButtonFood id={ id } fetchAgain="true" />
+          </div>
+
+          <h3 className="lg:text-amber-400 mb-4" data-testid="recipe-category">{`Categoria: ${data[0].strCategory}`}</h3>
+        </div>
+        <div className="transition-all duration-500 flex h-auto lg:w-1/2  lg:h-screen text-amber-400 mx-auto my-auto items-center justify-around flex-col">
+          <h1 className="header-container flex-none text-white text-3xl lg:bg-gradient-to-r from-amber-400 to-amber-500 font-pacifico">
+            {' '}
+            Checklist dos ingredientes !
+          </h1>
+          <FoodIngredientsList
+            progressRecipes={ progressRecipes }
+            id={ id }
+            setCheck={ setCheck }
+            getCheck={ getCheck }
+          />
+          <div className="border-l-2 border-r-2 border-b-2 border-white flex lg:overflow-y-auto flex-col mb-20 w-10/12 lg:w-1/2 bg-gradient-to-tr from-amber-400 to-amber-500 text-amber-500 rounded-xl shadow-xl">
+            <button
+              className="text-white font-bold border-t-2 border-b-2 border-white p-2 rounded-lg   focus:outline-none text-2xl"
+              type="button"
+              onClick={ setInstructions }
+            >
+              Instruções
+            </button>
+            {instructionsShow && (
+              <p
+                className="lg:h-screen/4 rounded-lg p-2  text-white"
+                data-testid="instructions"
+              >
+                {data[0].strInstructions}
+              </p>
+            )}
+          </div>
         </div>
       </div>
       <DoneRecipeButtonFood

@@ -66,4 +66,8 @@
   a {
     @apply font-pacifico text-white;
   }
+  
+  h1 {
+    @apply text-4xl;
+  }
 }

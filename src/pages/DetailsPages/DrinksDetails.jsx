@@ -5,6 +5,7 @@ import * as Actions from '../../actions';
 import CopyButton from '../../components/CopyButton';
 import FavoriteButtonDrink from '../../components/FavoriteButtons/FavoriteButtonDrink';
 import StartRecipeButtonDrink from '../../components/StartRecipeButtons/StartRecipeButtonDrink';
+import ReturnButton from '../../components/ReturnButton'
 import Loading from '../../components/Loading';
 import * as API from '../../services/foodApi';
 
@@ -72,6 +73,7 @@ function DrinksDetails({ match, location }) {
             className="flex overscroll-y-auto flex-col lg:flex-row items-center justify-center w-10/12 mx-auto h-10/12"
             key={ strDrink }
           >
+            <ReturnButton color="text-blue-500"path="../bebidas"/>
             <div className="flex w-full lg:w-1/2 items-center flex-col">
               <h1
                 className="header-container font-pacifico"
