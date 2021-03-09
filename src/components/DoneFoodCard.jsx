@@ -24,7 +24,7 @@ function DoneFoodCard({ food, index }) {
         />
       </div>
 
-      <div className="w-full h-auto flex text-sm justify-center items-center flex-col">
+      <div className="w-full h-auto flex text-sm justify-around items-center flex-col">
         <Link
           className="link text-amber-400 hover:text-amber-500"
           to={ `/comidas/${id}` }
