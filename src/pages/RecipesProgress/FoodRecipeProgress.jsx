@@ -101,7 +101,7 @@ function FoodRecipeProgress({ match, history }) {
             setCheck={ setCheck }
             getCheck={ getCheck }
           />
-          <div className="border-l-2 flex border-r-2 border-b-2 border-white lg:overflow-y-auto mb-16 w-screen/2 lg:w-1/2 bg-gradient-to-tr from-amber-400 to-amber-500 text-amber-500 rounded-xl shadow-xl">
+          <div className="border-l-2 flex flex-col border-r-2 border-b-2 border-white lg:overflow-y-auto mb-16 w-screen/2 lg:w-1/2 bg-gradient-to-tr from-amber-400 to-amber-500 text-amber-500 rounded-xl shadow-xl">
             <button
               className="text-white font-bold border-t-2 border-b-2 border-white p-2 rounded-lg w-full  focus:outline-none text-2xl"
               type="button"
